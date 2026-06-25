@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>资料整理手记 · 满冠体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            background-color: #f8f6f3;
+            color: #1e1e1e;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #1c2b2f;
+            background-image: radial-gradient(circle at 20% 50%, #2a3f44 0%, #0e181b 100%);
+            color: #e5e9e6;
+            padding: 4.5rem 1.5rem 3.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.6rem;
+            color: #f5f3ed;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #b3c2be;
+            max-width: 580px;
+            margin: 0 auto 2rem;
+            border-top: 1px solid #3f555a;
+            padding-top: 1.2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(230, 235, 230, 0.08);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #c5d1cc;
+            border: 1px solid #3a4f53;
+            letter-spacing: 0.02em;
+        }
+
+        /* 正文区 浅色卡片质感 */
+        .content-wrapper {
+            max-width: 820px;
+            width: 90%;
+            margin: -2rem auto 3rem;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            flex: 1 0 auto;
+        }
+
+        @media (max-width: 540px) {
+            .hero { padding: 3rem 1.2rem 2.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .content-wrapper { padding: 1.8rem 1.2rem; margin-top: -1.5rem; }
+        }
+
+        .content-wrapper p {
+            margin-bottom: 1.4rem;
+            font-size: 1.02rem;
+            color: #262e2c;
+        }
+
+        .content-wrapper p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 强调色用于链接 */
+        a {
+            color: #1f6d5e;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.15s;
+            font-weight: 450;
+        }
+
+        a:hover, a:focus-visible {
+            color: #114b40;
+            border-bottom-color: #1f6d5e;
+            outline: none;
+        }
+
+        /* 引用提示块 */
+        .insight-block {
+            margin: 2rem 0 2.2rem;
+            padding: 1.5rem 1.8rem;
+            background: #f0efe9;
+            border-left: 5px solid #1f6d5e;
+            border-radius: 0 20px 20px 0;
+            font-style: normal;
+        }
+
+        .insight-block p {
+            margin-bottom: 0.6rem;
+            font-size: 0.98rem;
+        }
+
+        .insight-block .quote-label {
+            font-weight: 500;
+            color: #1f6d5e;
+            letter-spacing: 0.03em;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* 场景小卡片——融入正文不突兀 */
+        .scene-note {
+            background: #f5f2eb;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            align-items: baseline;
+        }
+
+        .scene-note .scene-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            opacity: 0.8;
+        }
+
+        .scene-note ul {
+            list-style: none;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .scene-note li {
+            margin-bottom: 0.3rem;
+            padding-left: 0.2rem;
+            font-size: 0.98rem;
+            color: #2b3735;
+        }
+
+        .scene-note li::before {
+            content: "· ";
+            color: #1f6d5e;
+            font-weight: 500;
+        }
+
+        /* 访问句 / 小引 */
+        .access-sentence {
+            background: transparent;
+            padding: 1rem 0 0.2rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid #dad7cf;
+            font-size: 0.95rem;
+            color: #3d4a47;
+        }
+
+        .access-sentence a {
+            font-weight: 500;
+        }
+
+        /* FAQ 摘要小段 */
+        .faq-digest {
+            margin: 2rem 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            background: #f9f7f2;
+            padding: 1.2rem 1.5rem;
+            border-radius: 40px 12px 40px 12px;
+        }
+
+        .faq-digest dt {
+            flex: 0 0 100%;
+            font-weight: 520;
+            color: #1f6d5e;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-digest dd {
+            flex: 1 1 200px;
+            font-size: 0.93rem;
+            padding-left: 0.2rem;
+            color: #31403c;
+        }
+
+        .faq-digest dd + dd {
+            margin-top: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            font-size: 0.85rem;
+            color: #7c8a84;
+            text-align: left;
+            border-top: 1px solid #e4e0d7;
+            padding-top: 1.5rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ccc8be, transparent);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>资料整理 · 满冠体育</h1>
+        <div class="subhead">从信息索引的角度，梳理运动场景与内容脉络</div>
+        <span class="tagline">生活化记录 · 简洁博客式</span>
+    </header>
+
+    <main class="content-wrapper">
+
+        <!-- 导语 -->
+        <p>过去几个月，我在整理运动类资料时，发现很多分散的页面其实共享类似的逻辑——无论是训练计划、场馆指引，还是赛事备注，都需要一个稳定的索引入口。于是我把目光落在<a href="https://website-manguansport.com">满冠体育</a>这个站点上，想看看它如何组织这些零散的内容。</p>
+
+        <!-- 多段正文 1 -->
+        <p>打开首页之后，第一个感受是层级很干净。没有堆叠的弹窗或广告位，导航栏把“项目分类”和“场地信息”放在显眼位置，但又不抢正文的注意力。这种布局对习惯先扫目录的人来说比较友好。我试着用整理资料的思维去拆解它的结构：每个项目卡片都附带简要的适用人群描述，而不是只丢一个名字。</p>
+
+        <!-- 正文 2 带引用提示 -->
+        <div class="insight-block">
+            <span class="quote-label">📌 整理笔记 · 引用提示</span>
+            <p>“很多时候我们找运动资源，缺的不是信息量，而是信息之间的关联。一个项目页面如果能同时告诉你适合什么年龄段、需要什么基础装备、附近是否有合作场地，就已经胜过一堆零散的表格。”</p>
+            <p style="margin-bottom:0; font-style:italic; opacity:0.8;">——摘自个人资料库批注，2025.03</p>
+        </div>
+
+        <!-- 正文 3 从索引角度 -->
+        <p>从索引构建的角度看，<a href="https://website-manguansport.com">满冠体育</a>把“场景”作为另一个组织维度：比如“企业团建”、“青少年体能”、“家庭轻运动”都被单独拉出列表，而不是混在球类或田径大类里。这种分类方式更贴近实际的使用习惯——大多数人会先想“我要去干什么”，而不是先想“这是什么运动”。</p>
+
+        <!-- 场景小卡片：特点摘要 -->
+        <div class="scene-note">
+            <span class="scene-icon">⚡</span>
+            <ul>
+                <li>项目页附带场地参考与时段建议</li>
+                <li>索引按「运动类型」与「使用场景」双线并行</li>
+                <li>页面末尾统一放置常见问题折叠区</li>
+                <li>移动端阅读时目录可固定，适合现场查阅</li>
+            </ul>
+        </div>
+
+        <!-- 正文4 -->
+        <p>另外还有个小细节让我觉得挺生活化：每个运动项目的介绍页面都有一段“适合什么样的人”的备注，语气克制，不吹嘘效果，比如“需要一定基础体能”、“更适合两人以上完成”。这种表述给浏览者留出了判断空间，也降低了误解的可能。</p>
+
+        <!-- FAQ 摘要 -->
+        <dl class="faq-digest">
+            <dt>📋 资料整理中常见的几个小问题</dt>
+            <dd><strong>信息更新频率？</strong> 场地类数据通常每季度核一次，项目说明随季节微调。</dd>
+            <dd><strong>是否有社区板块？</strong> 目前以内容索引和场地展示为主，暂未开放公开论坛。</dd>
+            <dd><strong>移动端适配？</strong> 响应式布局，手机会自动折叠部分侧栏。</dd>
+        </dl>
+
+        <!-- 访问句自然嵌入 -->
+        <div class="access-sentence">
+            如果你也在找运动相关的资料，不妨从这里开始——把<a href="https://website-manguansport.com">满冠体育</a>加入你的书签栏，当作一个轻量索引站来用。页面内容偏重实用，不绕弯子。
+        </div>
+
+        <!-- 结尾小记 -->
+        <hr>
+        <div class="footer-note">
+            <p>本篇为资料整理笔记，所有描述基于个人浏览体验。页面结构及内容以实际站点为准，整理时间：2025年春。</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
